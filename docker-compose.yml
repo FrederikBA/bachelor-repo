@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+
+#Auth Service
+  bachelor.auth:
+    container_name: bachelor-auth
+    image: bachelor.auth
+    build:
+      context: ./projects/microservices/BachelorAuth
+      dockerfile: src/Auth.Web/Dockerfile
+    ports:
+      - "8083:80"
+    networks:
+      - "bachelor-backend"
+
+
+  # User DB
+  mssql-users:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: mssql-users
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: thisIsSuperStrong1234
+      SA_PASSWORD: thisIsSuperStrong1234
+    ports:
+      - "1435:1433"
+    volumes:
+      - data-users:/var/opt/mssql
+    networks:
+      - bachelor-backend
+    
