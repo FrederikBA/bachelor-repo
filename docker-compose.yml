@@ -30,3 +30,10 @@ services:
     networks:
       - bachelor-backend
     
+# Configuration
+networks:
+  kafka:
+    name: bachelor-backend
+
+volumes:
+ data-users:
