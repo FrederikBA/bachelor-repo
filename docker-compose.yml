@@ -1,4 +1,5 @@
 version: '3.8'
+name: shw-v8
 services:
 
 #Auth Service
@@ -6,7 +7,7 @@ services:
     container_name: bachelor-auth
     image: bachelor.auth
     build:
-      context: ./projects/microservices/BachelorAuth
+      context: ../projects/microservices/BachelorAuth
       dockerfile: src/Auth.Web/Dockerfile
     ports:
       - "8083:80"
@@ -14,26 +15,26 @@ services:
       - "bachelor-backend"
 
 
-  # User DB
-  mssql-users:
+  # MSSQL Database
+  mssql:
     image: mcr.microsoft.com/azure-sql-edge
-    container_name: mssql-users
+    container_name: mssql
     restart: unless-stopped
     environment:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: thisIsSuperStrong1234
       SA_PASSWORD: thisIsSuperStrong1234
     ports:
-      - "1435:1433"
+      - "1433:1433"
     volumes:
-      - data-users:/var/opt/mssql
+      - data:/var/opt/mssql
     networks:
       - bachelor-backend
     
 # Configuration
 networks:
-  kafka:
+  bachelor-backend:
     name: bachelor-backend
 
 volumes:
- data-users:
+ data:
