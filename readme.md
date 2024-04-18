@@ -10,3 +10,7 @@
 - [bachelor-chemicals](https://github.com/FrederikBA/bachelor-chemicals)
 - [bachelor-warningsentences](https://github.com/FrederikBA/bachelor-warningsentences)
 - [bachelor-shared](https://github.com/FrederikBA/bachelor-shared)
+
+
+## Docker Compose
+```docker-compose -f docker-compose.yml up -d --build```
