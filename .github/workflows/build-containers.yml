@@ -16,11 +16,23 @@ jobs:
         with:
           dotnet-version: "7.0.306"
 
-      - name: Restore dependencies for WarningSentence tests
+      - name: Prepare AuthService tests
+        run: dotnet restore /Users/frederik/bachelor/projects/microservices/BachelorAuth/test/Auth.Test
+
+      - name: Run AuthService Tests
+        run: dotnet test --configuration Release /Users/frederik/bachelor/projects/microservices/BachelorAuth/test/Auth.Test
+
+      - name: Prepare WarningSentenceService tests
         run: dotnet restore /Users/frederik/bachelor/projects/microservices/BachelorWS/test/WS.Test
 
-      - name: Run WarningSentence Tests
+      - name: Run WarningSentenceService Tests
         run: dotnet test --configuration Release /Users/frederik/bachelor/projects/microservices/BachelorWS/test/WS.Test
+
+      - name: Prepare ChemicalService tests
+        run: dotnet restore /Users/frederik/bachelor/projects/microservices/BachelorChemicals/test/Chemicals.Test
+
+      - name: Run Chemical Tests
+        run: dotnet test --configuration Release /Users/frederik/bachelor/projects/microservices/BachelorChemicals/test/Chemicals.Test
 
       - name: Build and run Docker Compose
         run: docker-compose -f /Users/frederik/bachelor/repo/docker-compose.yml up -d --build
