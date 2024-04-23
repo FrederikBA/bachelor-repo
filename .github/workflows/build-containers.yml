@@ -17,10 +17,10 @@ jobs:
           dotnet-version: "7.0.306"
 
       - name: Restore dependencies for WarningSentences
-        run: dotnet restore ../projects/microservices/BachelorWS/test/WS.Test
+        run: dotnet restore ../../projects/microservices/BachelorWS/test/WS.Test
 
       - name: Run WarningSentences tests
-        run: dotnet test --configuration Release ../projects/microservices/BachelorWS/test/WS.Test
+        run: dotnet test --configuration Release ../../projects/microservices/BachelorWS/test/WS.Test
 
       - name: Build and run Docker Compose
         run: |
