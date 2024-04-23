@@ -23,5 +23,4 @@ jobs:
         run: dotnet test --configuration Release /Users/frederik/bachelor/projects/microservices/BachelorWS/test/WS.Test
 
       - name: Build and run Docker Compose
-        run: |
-          docker-compose -f docker-compose.yml up -d --build
+        run: docker-compose -f /Users/frederik/bachelor/repo/docker-compose.yml up -d --build
