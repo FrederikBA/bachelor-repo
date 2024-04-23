@@ -27,6 +27,30 @@ services:
     networks:
       - bachelor-backend
 
+#Chemicals Service
+  bachelor.chemicals:
+    container_name: bachelor-chemicals
+    image: bachelor.chemicals
+    build:
+      context: ../projects/microservices/BachelorChemicals
+      dockerfile: src/Chemicals.Web/Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - "bachelor-backend"
+
+#Warning Sentences Service
+  bachelor.ws:
+    container_name: bachelor-ws
+    image: bachelor.ws
+    build:
+      context: ../projects/microservices/BachelorWS
+      dockerfile: src/WS.Web/Dockerfile
+    ports:
+      - "8082:80"
+    networks:
+      - "bachelor-backend"
+
 #Auth Service
   bachelor.auth:
     container_name: bachelor-auth
