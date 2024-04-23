@@ -16,6 +16,9 @@ jobs:
         with:
           dotnet-version: "7.0.306"
 
+      - name: cd
+        run: cd ../../../../../
+
       - name: pwd
         run: pwd
 
