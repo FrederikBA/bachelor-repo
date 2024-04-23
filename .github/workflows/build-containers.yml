@@ -31,7 +31,7 @@ jobs:
       - name: Prepare ChemicalService tests
         run: dotnet restore /Users/frederik/bachelor/projects/microservices/BachelorChemicals/test/Chemicals.Test
 
-      - name: Run Chemical Tests
+      - name: Run ChemicalService Tests
         run: dotnet test --configuration Release /Users/frederik/bachelor/projects/microservices/BachelorChemicals/test/Chemicals.Test
 
       - name: Build and run Docker Compose
