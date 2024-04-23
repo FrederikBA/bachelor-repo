@@ -1,0 +1,29 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  build:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.306'
+
+    - name: Restore dependencies for WarningSentences
+      run: dotnet restore ../projects/microservices/BachelorWS/test/WS.Test
+
+    - name: Run WarningSentences tests
+      run: dotnet test --configuration Release ../projects/microservices/BachelorWS/test/WS.Test
+
+    - name: Build and run Docker Compose
+      run: |
+        docker-compose -f docker-compose.yml up -d --build
