@@ -6,6 +6,7 @@
 
 ## Repositories:
 
+- [bachelor-gateway](https://github.com/FrederikBA/bachelor-gateway)
 - [bachelor-auth](https://github.com/FrederikBA/bachelor-auth)
 - [bachelor-chemicals](https://github.com/FrederikBA/bachelor-chemicals)
 - [bachelor-warningsentences](https://github.com/FrederikBA/bachelor-warningsentences)
