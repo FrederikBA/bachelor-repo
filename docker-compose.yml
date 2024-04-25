@@ -9,7 +9,6 @@ services:
       - /Users/frederik/bachelor/repo/volumes/loki:/etc/loki
     ports:
       - "3100:3100"
-    restart: unless-stopped
     command: -config.file=/etc/loki/loki-config.yml
     networks:
       - "bachelor-backend"
@@ -20,7 +19,6 @@ services:
     volumes:
       - /var/log:/var/log
       - /Users/frederik/bachelor/repo/volumes/promtail:/etc/promtail
-    restart: unless-stopped
     command: -config.file=/etc/promtail/promtail-config.yml
     networks:
       - "bachelor-backend"
@@ -33,7 +31,6 @@ services:
       - grafana_data:/var/lib/grafana
     ports:
       - "3000:3000"
-    restart: unless-stopped
     networks:
       - "bachelor-backend" 
 
