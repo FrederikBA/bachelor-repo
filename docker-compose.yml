@@ -6,7 +6,7 @@ services:
   loki:
     image: grafana/loki:latest
     volumes: 
-      - ./volumes/loki:/etc/loki
+      - /Users/frederik/bachelor/repo/volumes/loki:/etc/loki
     ports:
       - "3100:3100"
     restart: unless-stopped
@@ -19,7 +19,7 @@ services:
     image: grafana/promtail:latest
     volumes:
       - /var/log:/var/log
-      - ./volumes/promtail:etc/promtail
+      - /Users/frederik/bachelor/repo/volumes/promtail:/etc/promtail
     restart: unless-stopped
     command: -config.file=/etc/promtail/promtail-config.yml
     networks:
@@ -30,7 +30,7 @@ services:
     image: grafana/grafana:latest
     user: "501"
     volumes:
-      - ./volumes/grafana:/var/lib/grafana 
+      - Users/frederik/bachelor/repo/volumes/grafana:/var/lib/grafana 
     ports:
       - "3000:3000"
     restart: unless-stopped
