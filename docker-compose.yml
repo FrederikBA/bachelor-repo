@@ -82,7 +82,7 @@ services:
     image: bachelor.syncserver
     build:
       context: ../projects/microservices/BachelorSyncServer
-      dockerfile: src/SyncSerber/Dockerfile
+      dockerfile: src/SyncServer/Dockerfile
     ports:
       - "8084:80"
     networks:
