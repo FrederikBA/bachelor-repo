@@ -147,3 +147,5 @@ networks:
 
 volumes:
  data:
+ grafana_data:
+  external: false
