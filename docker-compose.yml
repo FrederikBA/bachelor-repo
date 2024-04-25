@@ -76,6 +76,17 @@ services:
     networks:
       - "bachelor-backend"
 
+#Auth Service
+  bachelor.syncserver:
+    container_name: bachelor-syncserver
+    image: bachelor.syncserver
+    build:
+      context: ../projects/microservices/BachelorSyncServer
+      dockerfile: src/SyncSerber/Dockerfile
+    ports:
+      - "8084:80"
+    networks:
+      - "bachelor-backend"
 
   # MSSQL Database
   mssql:
