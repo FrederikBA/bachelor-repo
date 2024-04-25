@@ -2,6 +2,17 @@ version: '3.8'
 name: shw-v8
 services:
 
+# Grafana
+  grafana:
+    image: grafana/grafana:latest
+    user: "501"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - "bachelor-backend" 
+
 # Loki
   loki:
     image: grafana/loki:latest
@@ -23,16 +34,6 @@ services:
     networks:
       - "bachelor-backend"
 
-# Grafana
-  grafana:
-    image: grafana/grafana:latest
-    user: "501"
-    volumes:
-      - grafana_data:/var/lib/grafana
-    ports:
-      - "3000:3000"
-    networks:
-      - "bachelor-backend" 
 
 # Kakfa and Zookeeper
   zookeeper:
@@ -82,6 +83,8 @@ services:
       - "8081:80"
     networks:
       - "bachelor-backend"
+    labels:
+      logging: promtail
 
 #Warning Sentences Service
   bachelor.ws:
@@ -94,6 +97,9 @@ services:
       - "8082:80"
     networks:
       - "bachelor-backend"
+    labels:
+      logging: promtail
+
 
 #Auth Service
   bachelor.auth:
@@ -106,6 +112,8 @@ services:
       - "8083:80"
     networks:
       - "bachelor-backend"
+    labels:
+      logging: promtail
 
 #Auth Service
   bachelor.syncserver:
