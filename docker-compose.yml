@@ -48,7 +48,7 @@ services:
     ports:
       - 9090:9090
     networks:
-      - kafka
+      - bachelor-backend
     restart: always
 
 
