@@ -4,13 +4,24 @@ global:
     monitor: "masstransit"
 
 scrape_configs:
-  - job_name: "masstransit"
+  - job_name: "Chemicals Service"
     scheme: http
     static_configs:
       - targets:
-          - "host.docker.internal:8081" #Chemicals service
-          - "host.docker.internal:8082" #Warning Sentence service
-          - "host.docker.internal:8083" #Auth service
+          - "host.docker.internal:8081" # Chemicals service
+
+  - job_name: "Warning Sentence Service"
+    scheme: http
+    static_configs:
+      - targets:
+          - "host.docker.internal:8082" # Warning Sentence service
+
+  - job_name: "Auth Service"
+    scheme: http
+    static_configs:
+      - targets:
+          - "host.docker.internal:8083" # Auth service
+
   - job_name: "prometheus"
     static_configs:
       - targets: ["localhost:9090"]
