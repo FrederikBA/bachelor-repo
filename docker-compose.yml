@@ -34,6 +34,23 @@ services:
     networks:
       - "bachelor-backend"
 
+# Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    networks:
+      - kafka
+    restart: always
+
 
 # Kakfa and Zookeeper
   zookeeper:
@@ -154,3 +171,4 @@ volumes:
  data:
  grafana_data:
   external: false
+ prometheus_data: {}
