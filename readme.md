@@ -12,7 +12,3 @@
 - [bachelor-warningsentences](https://github.com/FrederikBA/bachelor-warningsentences)
 - [bachelor-syncserver](https://github.com/FrederikBA/bachelor-syncserver)
 - [bachelor-shared](https://github.com/FrederikBA/bachelor-shared)
-
-
-## Docker Compose
-```docker-compose -f docker-compose.yml up -d --build```
