@@ -4,7 +4,8 @@
 
 - **Frederik Bilgrav Andersen**: cph-fa116@cphbusiness.dk
 
-## Repositories:
+## Repositories: 
+- [bachelor-monolithic-poc](https://github.com/FrederikBA/bachelor-monolithic-poc)
 
 - [bachelor-gateway](https://github.com/FrederikBA/bachelor-gateway)
 - [bachelor-auth](https://github.com/FrederikBA/bachelor-auth)
